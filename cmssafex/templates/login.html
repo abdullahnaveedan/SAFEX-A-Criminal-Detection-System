@@ -1,0 +1,102 @@
+{% extends 'structure.html' %} {% block title %}cms.safex{% endblock title %} 
+{%block css %} 
+.p-4{
+    padding: 5.4rem !important;
+    margin-left: 15rem;
+}
+input{
+    margin:10px;
+}
+.w-50{
+    width:60% !important;
+}
+
+.form-control{
+    padding: 1.375rem 0.75rem;
+    font-size:1.2rem;
+}
+h1{
+  font-weight:bolder;
+}
+
+element.style {
+}
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.btn {
+    color: white !important;
+}
+.p-3 {
+    padding: -28rem!important;
+}
+.w-25 {
+    width: 25%!important;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+.btn-group-lg>.btn, .btn-lg {
+    border-radius:0.8rem;
+}
+button:hover{
+  background:#f64c72;
+}
+form {
+  text-align:center
+}
+input[type="text"],input[type="password"],button
+{
+  margin-left:140px;
+}
+
+{% endblock css %} {% block body %} {% load static %}
+{% if not user.is_authenticated %}
+<form class="form-signin p-4 w-50" method="POST" action="/cms.safex/loginvalidation/"> 
+  {% csrf_token %}
+  <img
+    class="mb-4"
+    src="{% static 'images/logo.png'%}"
+    alt=""
+    width="50"
+    height="57"
+  />
+  <h1 class="h3 mb-3 font-weight-bold" >Sign in the System</h1>
+  <input
+    type="text"
+    id="floating"
+    name="username"
+    class="form-control w-50"
+    placeholder="Enter username"
+    required
+    autofocus
+  />
+  <input
+    type="password"
+    id="id_password"
+    name="password"
+    class="form-control w-50"
+    placeholder="Password"
+    required
+  />
+  <div class="checkbox mb-3">
+    <label> <input type="checkbox" value="remember-me" /> Remember me </label>
+  </div>
+ 
+      <button class="btn btn-lg btn-primary btn-block w-25 p-3"  type="submit">
+          Sign in
+        </button>
+        
+  
+  <p class="mt-5 mb-3 text-muted">&copy; SAFEX</p>
+</form>
+
+{% else %}
+<script>
+  window.location.href = "http://127.0.0.1:8000/cms.safex/dashboard"
+</script>
+{% endif %}
+
+
+{% endblock body %}

@@ -1,0 +1,90 @@
+{% extends 'structure.html' %} 
+{% block title %}Edit Record{% endblock title %}
+{% block css %}
+input{
+    margin:10px !important;
+}
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  border: 0;
+  border-top: 4px solid black;
+}
+{% endblock css %}
+{% block bufferbody %}
+<h3 class="text-center">Criminal ID : <small>{{person.criminalid}}</small></h3>
+
+<div class="d-flex">
+    <img src = "/media/{{person.frontimg}}"  width="300" height="400"style="border-radius:25px;"/>
+
+<form class="form-signin p-4 w-50" method="POST" enctype="multipart/form-data" action="/cms.safex/editcriminalrec/" >
+    {% csrf_token %}
+  <div class="d-flex">
+    <input
+      type="text"
+      name="id"
+      class="form-control w-75 d-none"
+      value = "{{person.criminalid}}"
+      autofocus
+    />
+    <input
+      type="text"
+      name="fname"
+      class="form-control w-75"
+      value = "{{person.name}}"
+      placeholder="Fullname"
+       
+      autofocus
+    />
+    <span class=""></span>
+    <input
+      type="text"
+      name="fthname"
+      class="form-control w-75"
+      value ="{{person.fathername}}"
+      placeholder="Father Name"
+      autofocus
+    />
+  </div>
+  <input
+    type="text"
+    name=" cnic"
+    class="form-control"
+    value = "{{ person.cnic}}"
+    placeholder="CNIC"
+    autofocus
+  />
+
+  <input
+    type="text"
+    class="form-control"
+    name="city"
+    value= "{{ person.city}}"
+    placeholder="City"
+  />
+  <input
+    type="text"
+    name="province"
+    class="form-control"
+    value="{{person.province}}"
+    placeholder="Province"
+  />
+      <select class="form-control mx-2" name="ms" required placeholder="Marital Status" >
+        <option value="{{person.meritalst}}" /selected>{{person.meritalst}}</option>
+        <option value="Single" >Single</option>
+        <option value="Married">Married</option>
+        <option value="Divorced">Divorced</option>
+    </select>
+    <select class="form-control mx-2 m-2" name="cs" required placeholder="Current Status">
+        <option value="{{person.currentst}}" /selected>{{person.currentst}}</option>
+        <option value="Escaped" >Escaped</option>
+        <option value="In Prision">In Prision</option>
+    </select>
+    <label>Change image </label>
+    <input type="file" class="btn btn-info" name="image" placeholder="Upload Image" accept="image/*">
+
+    <button type="submit" class="btn btn-success mx-3">Save Changes</button>
+</form>
+</div>
+
+{% endblock bufferbody %}

@@ -1,0 +1,113 @@
+{% extends 'structure.html' %}
+{% block title %}Add User{% endblock title %}
+{%block css %} 
+.p-4{
+    margin-left: 16rem;
+}
+input{
+    margin:10px;
+}
+.w-50{
+    width:60% !important;
+}
+.mb-4, .my-4 {
+    margin-bottom: 2.5rem!important;
+}
+.form-control{
+    padding: 1.375rem 0.75rem;
+    font-size:1.2rem;
+}
+h1{
+  font-weight:bolder;
+}
+button:hover{
+  background:#f64c72;
+}
+{% endblock css %}
+{% block bufferbody %}
+
+{% load static %}
+<form class="form-signin p-4 w-50" method="POST" action="/cms.safex/newuser/">
+    {% csrf_token %}
+    <center>
+    <img
+      class="mb-4"
+      src="{% static 'images/logo.png'%}"
+      alt=""
+      width="50"
+      height="57"
+    />
+    <h1 class="h3 mb-3 font-weight-bold">Add New User</h1>
+      <div class="d-flex">
+        <input
+          type="text"
+          name="fname"
+          id="fname"
+          class="form-control w-75"
+          placeholder="First name"
+          required
+          autofocus
+        />
+        <input
+          type="text"
+          name="lname"
+          id="lname"
+          class="form-control w-75"
+          placeholder="Last Name"
+          required
+          autofocus
+        />
+      </div>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        class="form-control"
+        placeholder="Username"
+        required
+        autofocus
+      />
+      <input
+        type="email"
+        id="inputEmail"
+        name="inputEmail"
+        class="form-control"
+        placeholder="Email address"
+        required
+        autofocus
+      />
+      <input
+        type="text"
+        id="beltno"
+        name="beltno"
+        class="form-control"
+        placeholder="Belt Number"
+        required
+        autofocus
+      />
+      <input
+        type="password"
+        id="pass1"
+        name="pass1"
+        class="form-control"
+        placeholder="Password"
+        required
+        autofocus
+      />
+      <input
+        type="password"
+        id="pass2"
+        name="pass2"
+        class="form-control"
+        placeholder="Confirm Password"
+        required
+        
+      />
+      <br>
+      <button class="btn btn-lg btn-primary btn-block w-50" type="submit">
+        Save
+      </button>
+      <p class="mt-5 mb-3 text-muted">&copy; SAFEX</p>
+    </center>
+  </form>
+{% endblock bufferbody %}

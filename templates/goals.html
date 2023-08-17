@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% block title %}SAFEX | Goals{% endblock title %}
+{% block css %}
+.me-md-2
+{
+    color:black !important;
+    border:1px solid black;
+}
+.me-md-2:hover
+{
+    border:none ;    
+}
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img
+        src="{% static 'images/image1.png' %}"
+        class="d-block mx-lg-auto img-fluid"
+         
+        width="700"
+        height="500"
+        loading="lazy"
+      />
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold lh-1 mb-3">
+        ALGORITHEM
+      </h1>
+      <p class="lead text-justify">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In Safex, we employ advanced algorithms such as MTCNN (Multi-Task Cascaded Convolutional Networks) and FaceNet to 
+        power our criminal detection system. MTCNN is a state-of-the-art face detection algorithm that accurately locates 
+        and extracts facial features from surveillance video frames. This algorithm enables us to precisely identify 
+        individuals within the footage. <span id="algo">Additionally, we leverage the FaceNet algorithm, which utilizes deep learning 
+        techniques to create high-dimensional face embeddings. These embeddings allow us to compare and match faces 
+        across different frames and even across different videos, aiding in criminal identification and tracking. 
+        By harnessing the power of these cutting-edge algorithms, Safex ensures accurate and efficient criminal 
+        detection to enhance security measures.</span>
+      </p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <button type="button"  class="btn btn-lg px-4 me-md-2 algo">
+          Read More 
+        </button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img
+        src="{% static 'images/wp.png' %}"
+        class="d-block mx-lg-auto img-fluid"
+        width="700"
+        height="500"
+        loading="lazy"
+      />
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold lh-1 mb-3">
+        WORKING PRINCIPLE
+      </h1>
+      <p class="lead text-justify">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The working principle of Safex, a criminal detection system, revolves around the utilization of MTCNN (Multi-task Cascaded Convolutional Networks) and FaceNet algorithms. MTCNN is employed to detect and localize human faces within CCTV camera feeds, while FaceNet is used for face recognition and comparison.
+
+        <span id="principle">
+
+          The system works by capturing video streams from CCTV cameras and applying the MTCNN algorithm to identify and extract human faces. These faces are then passed through the FaceNet algorithm, which generates a unique facial embedding or representation for each individual.
+          To identify potential criminals, Safex compares the facial embeddings of detected individuals with a pre-existing database of known criminals. If a match is found, an alert is triggered, notifying security personnel or authorities about the potential threat.
+          
+          Through the combination of MTCNN, FaceNet, and the efficient design of the web application using Django, Safex provides an effective and automated solution for detecting criminals, enhancing security, and aiding in crime prevention.
+        </span>
+      </p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <button type="button" class="btn btn-lg px-4 me-md-2 principle">
+          Read More
+        </button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img
+        src="{% static 'images/vision.jpg' %}"
+        class="d-block mx-lg-auto img-fluid"
+         
+        width="700"
+        height="500"
+        loading="lazy"
+      />
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold lh-1 mb-3">
+        VISION
+      </h1>
+      <p class="lead">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The vision of Safex is to create a safer and more secure environment by leveraging advanced technologies in the field of criminal detection. Safex aims to be at the forefront of innovation, utilizing machine learning, AI, and video analytics to develop a robust system that can effectively identify and track criminals.
+
+The vision of Safex extends beyond traditional security measures, striving to provide proactive solutions that aid law enforcement agencies and security personnel in their efforts to prevent crime.<span id="vision">
+  By combining cutting-edge algorithms with CCTV camera networks, Safex envisions a future where criminal activities can be promptly detected and addressed, leading to a safer society.
+  
+  Safex seeks to be a leading force in the field of criminal detection, continually pushing the boundaries of technology and research to provide state-of-the-art solutions that empower security professionals in their mission to maintain law and order.
+</span> 
+      </p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <button type="button" class="btn btn-lg px-4 me-md-2 vision">
+            Read More
+        </button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img
+        src="{% static 'images/mission.png' %}"
+        class="d-block mx-lg-auto img-fluid"
+         
+        width="700"
+        height="500"
+        loading="lazy"
+      />
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold lh-1 mb-3">
+        MISSION
+      </h1>
+      <p class="lead text-justify">
+        <strong>Enhance Security </strong> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Safex aims to enhance security measures by utilizing state-of-the-art algorithms and techniques to detect and identify potential criminals in real-time.
+<br>
+<strong>Aid Law Enforcement  </strong> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The system's mission is to provide valuable assistance to law enforcement agencies by offering reliable criminal detection capabilities and actionable insights for effective crime prevention and investigation.
+<br><span id="mission">
+  <strong>Optimize Resources  </strong> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Safex strives to optimize the allocation of security resources by automating the process of criminal detection, reducing human effort, and improving response times to potential threats.
+  <br>
+  <strong>Enhance Public Safety  </strong> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By promptly identifying and alerting security personnel about suspicious individuals, Safex works towards creating a safer environment for the public, reducing crime rates, and instilling a sense of security.
+  <br>
+  <strong>Continuous Improvement </strong> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The mission is to continuously improve the system's performance by integrating advancements in machine learning, artificial intelligence, and video analytics, ensuring the highest level of accuracy and reliability in criminal detection.
+</span>
+      </p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <button type="button" class="btn btn-lg px-4 me-md-2 mission">
+            Read More
+        </button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+  $(document).ready(function() {
+  $("#algo").hide();
+  $("#principle").hide();
+  $("#vision").hide();
+  $("#mission").hide();
+
+});
+$(".algo").click(function(){
+  $("#algo").show();
+  $(".algo").hide();
+});
+$(".principle").click(function(){
+  $("#principle").show();
+  $(".principle").hide();
+});
+$(".vision").click(function(){
+  $("#vision").show();
+  $(".vision").hide();
+});
+$(".mission").click(function(){
+  $("#mission").show();
+  $(".mission").hide();
+});
+{% endblock js %}

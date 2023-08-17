@@ -1,0 +1,119 @@
+{% extends 'structure.html' %}
+{% block title %}
+Dashboard
+{% endblock title %}
+{% block css %}
+
+.db,.db2
+{
+  color:white;
+  background-color:#f64c72;
+  border-radius:5px;
+  margin:20px 18px;
+}
+.db{
+  border:1px solid #fc234f;
+}
+.db2{
+  border:1px solid #025ebf;
+}
+.db h3,.db h4
+{
+  margin-right:170px;
+  margin-top:22px;
+  margin-left:10px;
+}
+.db2 h3{
+  margin:29px;
+}
+.db2:hover
+{
+  margin:19px;
+}
+{% endblock css %}
+{% block bufferbody %}
+{% if user.is_authenticated %}
+<div class="d-flex flex-row flex-wrap">
+  <div class="db shadow  bg-body rounded">
+    <h3>Total Criminals</h3>
+    <h4>{{total}}</h4>
+  </div> 
+  <div class="db shadow  bg-body rounded">
+    <h3>Total Escape</h3>
+    <h4>{{esc}}</h4>
+  </div> 
+  <div class="db shadow  bg-body rounded" >
+    <h3>Total Catch</h3>
+    <h4>{{pri}}</h4>
+  </div>  
+</div>
+
+<div class="d-flex flex-row flex-wrap">
+  <div class="db2 shadow  bg-body rounded" style="background:#0069D9;">
+    <h3>Username <small>{{staff.username}}</small></h3>
+  </div> 
+  <div class="db2 shadow  bg-body rounded" style="background:#0069D9;">
+    <h3>Station <small> {{staff.station}}</small></h3>
+  </div> 
+  <div class="db2 shadow  bg-body rounded" style="background:#0069D9;">
+    <h3>Devision <small>{{staff.division}}</small></h3>
+  </div>  
+  <div class="db2 shadow  bg-body rounded" style="background:#0069D9;">
+    <h3>Staff ID : <small>syx{{users.id}}</small></h3>
+  </div>
+</div>
+
+<table class="table mt-4">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Staff Information</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    
+    <tr>
+      <td>Name</td>
+      <td>{{staff}}</td>
+    </tr>
+    <tr>
+      <td>Father Name</td>
+      <td>{{staff.fathername}}</td>
+    </tr>
+    <tr>
+      <td>CNIC</td>
+      <td>{{staff.cnic}}</td>
+    </tr>
+    <tr>
+      <td>Belt Number</td>
+      <td>{{staff.beltno}}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{staff.email}}</td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td>{{staff.city}}</td>
+    </tr>
+    <tr>
+      <td>Phone Number</td>
+      <td>{{staff.phoneno}}</td>
+    </tr>
+    <tr>
+      <td>Rank</td>
+      <td><strong>{{staff.rank}}</strong></td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>{{staff.address}}</td>
+    </tr>
+    
+  </tbody>
+</table>
+{% else %}
+  window.location.href = "http://127.0.0.1:8000/cms.safex"
+{% endif %}
+{% endblock bufferbody %}

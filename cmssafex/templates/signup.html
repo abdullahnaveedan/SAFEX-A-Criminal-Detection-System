@@ -1,0 +1,95 @@
+{% extends 'structure.html' %} {% block title %}cms.safex{% endblock title %} 
+{%block css %} 
+.p-4{
+    padding: 7rem !important;
+    margin-left: 16rem;
+}
+input{
+    margin:10px;
+}
+.w-50{
+    width:60% !important;
+}
+.mb-4, .my-4 {
+    margin-bottom: 2.5rem!important;
+}
+.form-control{
+    padding: 1.375rem 0.75rem;
+    font-size:1.2rem;
+}
+h1{
+  font-weight:bolder;
+}
+button:hover{
+  background:#f64c72;
+}
+{% endblock css %} {% block body %} {% load static %}
+
+<form class="form-signin p-4 w-50">
+  <img
+    class="mb-4"
+    src="{% static 'images/logo.png'%}"
+    alt=""
+    width="50"
+    height="57"
+  />
+  <h1 class="h3 mb-3 font-weight-bold" >Sign up the System</h1>
+  <center>
+    <div class="d-flex">
+        <input
+        type="text"
+        name="fname"
+        class="form-control w-75"
+        placeholder="First name"
+        required
+        autofocus
+      />
+      <span class=""></span>
+      <input
+        type="text"
+        name="lname"
+        class="form-control w-75"
+        placeholder="Last Name"
+        required
+        autofocus
+      />
+    </div>
+  <input
+    type="text"
+    name="username"
+    class="form-control"
+    placeholder="username"
+    required
+    autofocus
+  />
+  <input
+    type="email"
+    id="inputEmail"
+    class="form-control "
+    placeholder="Email address"
+    required
+    autofocus
+  />
+  <input
+    type="password"
+    id="inputPassword"
+    class="form-control "
+    placeholder="Password"
+    required
+  /></center>
+  <div class="checkbox mb-3">
+    <label> <input type="checkbox" value="remember-me" /> Remember me </label>
+  </div>
+  <center>
+      <button class="btn btn-lg btn-primary btn-block w-50" type="submit">
+          Sign in
+        </button>
+        <div class="container pt-2">
+          <a href = "signup/">Create new Account</a>
+          <a href = "#" style="margin-left: 117px;">Forgot Password</a>
+        </div>
+    </center>
+  <p class="mt-5 mb-3 text-muted">&copy; SAFEX</p>
+</form>
+
+{% endblock body %}

@@ -1,0 +1,101 @@
+{% extends 'structure.html' %}
+{% block title %}All Criminals{% endblock title %}
+{% block css %}
+.btn{
+    height:38px;
+}
+{% endblock css %}
+
+
+{% block bufferbody %}
+
+<h1 style="color:blue; font-family:Arial Black;" class="text-center mt-4 mb-4">All Criminal Record</h1>
+<br>
+<div class="container-fluid d-flex justify-content-start ">
+
+    <form class="input-group mb-3 w-25 mx-2" method="POST" action="/cms.safex/searchcid/">
+        {% csrf_token %}
+        <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary bg-dark" onclick="showfun()" type="submit">Search</button>
+        </div>
+        <input type="text" class="form-control" name="id" placeholder="@ID" required>
+    </form>
+
+    <form class="input-group mb-3 w-25 mx-2" method="POST" action="/cms.safex/searchname/">
+        {% csrf_token %}
+        <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary bg-dark" onclick="s()" type="submit">Search</button>
+        </div>
+        <input type="text" class="form-control" name="name" required placeholder="@Name">
+    </form>
+    <form class="input-group mb-3 w-25 mx-2" method="POST" action="/cms.safex/searchcnic/">
+        {% csrf_token %}
+        <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary bg-dark"  type="submit">Search</button>
+        </div>
+        <input type="text" class="form-control"name="city" required placeholder="@CNIC">
+    </form>
+    <a href="/cms.safex/allcriminalrecord/" class="btn btn-outline-secondary bg-dark">Reload</a>
+</div>
+
+<br><br>
+<table class="table table-bordered" id="tbl1">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Criminal ID</th>
+        <th scope="col">Criminal Name</th>
+        <th>City</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in data %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td><strong>{{i.criminalid}}</strong></td>
+                <td>{{i.name}}</td>
+                <td>{{i.currentst}}</td>
+                <td><a class="btn" href="/cms.safex/editcriminalrecord/{{i.criminalid}}">
+                    <i class="fa-solid fa-pen-to-square" style="color:#007bff;"></i> </a>
+                    <a class="btn" href="/cms.safex/allcriminals/{{i.criminalid}}">
+                    <i class="fa-solid fa-eye" style="color: #10707f;"></i> </a>
+                    <a class="btn" href="/cms.safex/deleterecordcriminal/{{i.criminalid}}">
+                    <i class="fa-solid fa-trash" style = "color:red"></i> </a>
+                    
+                </td>
+            </tr>
+         {% endfor %}
+    </tbody>
+    <tbody>
+            
+                {% if count == 0 %}
+                    <td class="text-center p-4 m-4" colspan="5" style="color:blue; font-family:Arial Black;"><h3>Record Not Found<h3></td>
+                {% else %}
+                    {% for ins in instance %}
+                    <tr>
+                        <th>{{forloop.counter}}</th>
+                        <td><strong>{{ins.criminalid}}</strong></td>
+                        <td>{{ins.name}}</td>
+                        <td>{{ins.city}}</td>
+                        <td>
+                            <a class="btn" href="/cms.safex/editcriminalrecord/{{ins.criminalid}}">
+                                <i class="fa-solid fa-pen-to-square" style="color:#007bff;"></i> </a>
+                                <a class="btn" href="/cms.safex/allcriminals/{{ins.criminalid}}">
+                                <i class="fa-solid fa-eye" style="color: #10707f;"></i> </a>
+                                <a class="btn" href="/cms.safex/deleterecordcriminal/{{ins.criminalid}}">
+                                <i class="fa-solid fa-trash" style = "color:red"></i> </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                
+            
+    </tbody>
+</div>
+</table>
+
+<script>
+    
+</script>
+{%endblock bufferbody%}

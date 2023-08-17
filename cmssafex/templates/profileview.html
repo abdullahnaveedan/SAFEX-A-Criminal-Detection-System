@@ -1,0 +1,91 @@
+{% extends 'structure.html' %}
+{% block title %}Profile {% endblock title %}
+{% block bufferbody %}
+
+<center><p class="btn btn-info">@{{staff.username}}</p></center>
+
+
+<table class="table mt-4">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">0</th>
+        <td>ID</td>
+        <td>{{users.id}}</td>
+      </tr>
+      <tr>
+      <tr>
+        <th scope="row">1</th>
+        <td>Name</td>
+        <td>{{staff.fname}} {{staff.lname}}</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Father Name</td>
+        <td>{{staff.fathername}}</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>CNIC</td>
+        <td>{{staff.cnic}}</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Belt Number</td>
+        <td>{{staff.beltno}}</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>Email</td>
+        <td>{{staff.email}}</td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td>City</td>
+        <td>{{staff.city}}</td>
+      </tr>
+      <tr>
+        <th scope="row">7</th>
+        <td>Phone Number</td>
+        <td>{{staff.phoneno}}</td>
+      </tr>
+      <tr>
+        <th scope="row">8</th>
+        <td>Rank</td>
+        <td><strong>{{staff.rank}}</strong></td>
+      </tr>
+      <tr>
+        <th scope="row">9</th>
+        <td>Address</td>
+        <td>{{staff.address}}</td>
+      </tr>
+      <tr>
+        <th scope="row">10</th>
+        <td>Devision</td>
+        <td>{{staff.division}}</td>
+      </tr>
+      <tr>
+        <th scope="row">11</th>
+        <td>Station</td>
+        <td>{{staff.station}}</td>
+      </tr>
+      <tr>
+        <th scope="row">12</th>
+        <td>Date of Join</td>
+        <td>{{date}}</td>
+      </tr>
+      <tr>
+        <th scope="row">13</th>
+        <td>Last Login</td>
+        <td>{{lastlogin}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+{% endblock bufferbody %}

@@ -1,0 +1,78 @@
+{% extends 'structure.html' %}
+{% block title %}Add New Criminal{% endblock title %}
+
+{% block css %}
+.flex-row select:hover{
+background:grey !important;
+}
+{% endblock css %}
+{% block bufferbody %}
+
+<h1>Add New Criminal</h1>
+<p>Fill the detail of criminal</p>
+<form class="container w-75" enctype="multipart/form-data" action="/cms.safex/newrecord/" method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <p class="pt-2 mx-3">Fullname </p>
+        <input type="text" class="form-control" name="name"  placeholder="Fullname">
+    </div>
+
+    <div class="form-group ">
+        <p class="pt-2 mx-3">Father_Name </p>
+        <input type="text" class="form-control" name="fname"  placeholder="Father Name">
+    </div>
+
+    <div class="form-group ">
+        <p class="pt-2 mx-3">CNIC </p>
+        <input type="text" class="form-control" name="cnic" placeholder="CNIC">
+    </div>
+    
+    <div class="form-group w-50">
+        <p class="pt-2 mx-3">Date_of_Birth </p>
+        <input type="Date" class="form-control" name="dob" placeholder="Date of birth">
+    </div>
+    
+    <div class="form-group ">
+        <p class="pt-2 mx-3">City </p>
+        <input type="text" class="form-control" name="city"  placeholder="City">
+    </div>
+    
+    <div class="form-group ">
+        <p class="pt-2 mx-3">Province </p>
+        <select class="form-control" name="province"  placeholder="Province">
+            <option disable>Province</option>
+            <option value = "1">PUNJAB</option>
+            <option value = "2">SINDH</option>
+            <option value = "3">Balochistan</option>
+            <option value = "4">Khyber Pakhtunkhwa</option>
+            <option value = "5">Kashmeer</option>
+        </select>
+    </div>
+    <div class="d-flex flex-row"> 
+    <p class="pt-3 mx-2">Merital_Status</p>
+    <select class="form-select btn btn-secondary m-2" name="merriage" required>
+        <option>Choose..</option>
+        <option value="1">Single</option>
+        <option value="2">Married</option>
+        <option value="3">Divorced</option>
+    </select>
+    <br>
+    <p class="pt-3 mx-2">Current_Status</p>
+    <select class="form-select btn btn-secondary pt-2 m-2" name="status" aria-label="Default select example">
+        <option disable>Choose..</option>
+        <option value="1">Escape</option>
+        <option value="2">Prision</option>
+    </select>   
+    </div>
+    <br><br>
+    <div class="form-group">
+        <h4>Upload Criminal Image</h4>
+        <input type="file" class="btn btn-info" name="front" placeholder="Upload Image" accept="image/*">
+    </div>
+    
+    <br>
+    <button  class="btn btn-success mb-4 w-25 p-3 font-weight-bolder" style="font-size:20px;">Save</a>
+</form>
+
+{% endblock bufferbody %}

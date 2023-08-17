@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    {% load static %}
+    <link
+      rel="icon"
+      href="{% static 'images/logo.png' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    {% block head %}{% endblock head %}
+    <title>{% block title %} {% endblock %}</title>
+    <style>
+      
+       .btn
+       {
+        color:white !important;
+       }
+       .btn:hover
+       {
+        background:#; /*redd*/
+       }
+       nav
+       {
+        background:#2f2fa2;  /*bluish*/
+       }
+       .navbar-brand
+       {
+        font-family: fantasy;
+        color:#f64c72 !important;
+        font-size:30px;
+       }
+       .time{
+        padding-left:300px;
+       }
+       .navbar-nav
+       {
+        padding-left:100px;
+       }
+       .dropdown-toggle
+       {
+        background:#f64c72;
+       }
+      {% block css %}{% endblock %}
+    </style>
+  </head>
+
+  <body onload="time(); preventPaste()">
+    {% load static %}
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <img src="{% static 'images/logo.png' %}" class="mx-2" width="30" height="30" alt="">
+      <a class="navbar-brand" href="/">SAFEX.</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="time">
+        <span class="btn btn-primary" style="margin-left: -103px;" id="divMsg"></span>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" >
+          <li class="nav-item active mx-4">
+            <a class="nav-link btn px-4" href="/"
+              ><i class="fa-solid fa-house" style="color: #fcfcfc;"></i> Home </a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link btn px-4" href="/goals"><i class="fa-solid fa-trophy" style="color: #ffffff;"></i> Goals</a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link btn px-4" href="/about"><i class="fa-sharp fa-solid fa-eject"></i> About</a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link btn px-4" href="/contact"><i class="fa-solid fa-phone" style="color: #ffffff;"></i> Contact</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <div class="btn-group">
+              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-solid fa-user" style="color: #ffffff;"></i> {{request.user}}
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/cms.safex/dashboard/"><i class="fa-solid fa-table-columns" style="color: #000000;"></i> Dashboard</a>
+                <a class="dropdown-item" href="/cms.safex/userinfo/{{request.user.id}}"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i> Update Profile</a>
+                {% if request.user.username == "safexsystem"%}
+                  <a class="dropdown-item" href="//127.0.0.1:8000/admin" target="self"><i class="fa-solid fa-chart-simple" style="color: #000000;"></i> Admin Panel</a>
+                {% endif %}
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/cms.safex/logout/"><i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i> Logout</a>
+              </div><i class="" style="color: #000000;"></i>
+            </div>
+          </li>
+          {%else%}
+          <li class="nav-item mx-4">
+            <a class="nav-link btn px-4" href="/cms.safex"><i class="fa-solid fa-lock" style="color: #ffffff;"></i> CMS</a>
+          </li>
+          {% endif %}
+          </li>
+      </div>
+    </nav>
+
+    {% block body %} {% endblock %}
+    <footer
+      class="font-small bg-dark text-light position-relative w-100 fixed-bottom">
+      <div class="footer-copyright text-center py-3">
+        &copy; 2023 Copyright
+        <a class="text-decoration-none" href="http://127.0.0.1:8000/"
+          >SAFEX.com</a
+        >
+        Designed by Abdullah Naveed
+      </div>
+    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js"></script>
+    <script>
+        function time(){
+            let d = new Date();
+            let s = d.getSeconds();
+            let m = d.getMinutes();
+            let h = d.getHours();
+
+            if(h>12)
+            {
+                h = h-12;
+            }
+            if(h > 0 && h < 10)
+            {
+                h = '0' + h;
+            }
+            if(m < 10)
+            {
+                m = '0'+ m;
+            }
+            if(s < 10)
+            {
+                s = '0' + s;
+            }
+
+            var lengthOfName = name.length;
+            document.getElementById("divMsg").innerHTML = h + " : " + m + " : " + s;
+            setTimeout(time, 1000);
+        }
+        function preventPaste() {
+          var passwordField = document.getElementById('id_password');
+            passwordField.addEventListener('paste', function(e) {
+              e.preventDefault();
+              alert("Paste Disable")  
+          });
+        }
+        console.clear();
+      {%block js%}
+      {%endblock%}
+    </script>
+  </body>
+</html>

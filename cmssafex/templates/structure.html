@@ -1,0 +1,125 @@
+  {% extends 'base.html' %}
+  {% block head %}
+  <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
+  {% endblock head %}
+  {% block css %}
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .btn-group>.btn-group:not(:first-child), .btn-group>.btn:not(:first-child) {
+    margin-left: -120px !important;
+    margin-top: 7px;
+  }
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  .nav{
+    margin-bottom:250px;
+  }
+  {% endblock css %}
+  {% block body %}
+  {% if user.is_authenticated %}
+  <div class="container-fluid">
+    <div class="row ">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar pt-4 ">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column navbtns">
+            <li class="nav-item">
+              <a class="nav-link p-3 active" href="/cms.safex/dashboard/">
+                <i class="fa-solid fa-house" style="color: ##0069D9;"></i>
+                Dashboard <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-3" href="/cms.safex/allcriminalrecord/">
+                <i class="fa-solid fa-list" style="color: #0069D9;"></i>
+                All Criminal
+              </a>
+            </li>
+            
+            {% if request.user.username == 'safexsystem' %}
+            <li class="nav-item">
+              <a class="nav-link p-3" href="/cms.safex/userinfo/">
+                <i class="fa-solid fa-circle-info" style="color: #0069D9;"></i>
+                User Information
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-3" href="/cms.safex/contacts/">
+                <i class="fa-solid fa-message" style="color: #0069D9;"></i>
+                Emails
+              </a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link p-3" href="/cms.safex/adduser/">
+                  <i class="fa-solid fa-plus" style="color: #0069D9;"></i>
+                  Add New User
+                </a>
+              </li>
+              {%endif%}
+              
+              
+              <div class="btn-group">
+                <a class="nav-link p-3" style="color:#007bff;"><i class="fa-solid fa-plus" style="color: #0069D9;"></i> Activity</a>
+                <button type="button" style="background:none; color:#000 !important;margin-left: -120px;"class="btn dropdown-toggle dropdown-toggle-split mt-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/cms.safex/addcriminals/"><i class="fa-solid fa-plus" style="color: #0069D9;"></i> Add New Criminal</a>
+                  <a class="dropdown-item" href="/cms.safex/addcriminalrecord/"><i class="fa-solid fa-plus" style="color: #0069D9;"></i> Add Criminal Record</a>
+                </div>
+              </div>
+            <li class="nav-item">
+              <a class="nav-link p-3 active" href="#"/>
+                
+                <b>Detection</b>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-3 active" href="/cms.safex/imagedetection/">
+                <i class="fa-sharp fa-solid fa-camera-viewfinder"></i>
+                <i class="fa-solid fa-image" style="color: #0069D9;"></i>
+                Image Detection 
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-3 active" href="/cms.safex/videodetection/">
+                <i class="fa-solid fa-video" style="color: #0069D9;"></i>
+                Video Detection 
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-3 active" href="/cms.safex/cameradetection/">
+                <i class="fa-solid fa-camera" style="color: #0069D9;"></i> 
+                Camera Detection
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 pt-4">
+          {% block bufferbody %}{% endblock bufferbody %}
+      </main>
+      {%else%}
+      <script>
+        window.location.href = "http://127.0.0.1:8000/cms.safex";
+        console.clear();
+      </script>
+      {%endif%}
+  {% endblock body %}

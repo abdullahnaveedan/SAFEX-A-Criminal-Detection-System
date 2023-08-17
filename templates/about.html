@@ -1,0 +1,171 @@
+{% extends 'base.html' %} {% block title %}SAFEX | About{% endblock title %} 
+{% block css %} {% endblock css %} {% block body %}
+{% load static %}
+<main>
+    <div class="container-fluid">
+       <center class="pt-4"> <img src = "{% static 'images/tryit.png'%}"  width="85%" height="600px"/></center>
+    </div>
+    
+
+  <div class="container marketing pt-4">
+    <div class="row">
+      <div class="col-lg-4">
+        <img
+          class="bd-placeholder-img bd-placeholder-img-lg featurette-image mt-4 pt-4 img-fluid mx-auto"
+          width="500"
+          height="500"
+          src="{% static 'images/product.png' %}" 
+        />
+
+        <h2 class="fw-normal">Product</h2>
+        <p class="fw-normal text-justify">
+          What is the focus and objective of the Human Face Recognition System project, and how does it use Keras, 
+          TensorFlow, and Deep Learning to train a custom model for detecting and identifying human faces in various input streams?
+        </p>
+          <br><br>
+        <p><a class="btn btn-info" href="#prods">View details &raquo;</a></p>
+      </div>
+
+     <div class="col-lg-4">
+        <img
+        class="bd-placeholder-img bd-placeholder-img-lg featurette-image mt-4 pt-4 img-fluid mx-auto"
+        width="220"
+        height="170"
+        src={% static 'images/wp.png' %}
+        />
+        
+      <h2 class="fw-normal mt-4">Background</h2>
+      <p class="text-justify">
+        What is the motivation behind the face detection and recognition project, and how does it contribute to crime tracing and law enforcement agencies? Additionally, how does the project streamline entry gate processes in shopping malls using automated face detection and recognition?
+      </p>
+      <p><a class="btn btn-info" href="#bg">View details &raquo;</a></p>
+    </div>
+      <!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img
+        class="bd-placeholder-img bd-placeholder-img-lg featurette-image mt-4 pt-4 img-fluid mx-auto"
+        width="220"
+        height="170"
+          src={% static 'images/bg.png' %}
+          />
+          
+        <h2 class="fw-normal">Aims and Target</h2>
+        <p class="text-justify">
+          What are the key objectives of a criminal detection project utilizing face recognition technology? How does accurate identification, improved public safety, real-time operation, robustness, privacy preservation, integration with other systems, and a user-friendly interface contribute to the success of the system in meeting the requirements of criminal investigations? </p>
+        <p><a class="btn btn-info" href="#aims">View details &raquo;</a></p>
+      </div>
+      <!-- /.col-lg-4 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider" />
+
+    <div class="row featurette">
+      <div class="col-md-7" id="prods">
+        <h2 class="featurette-heading fw-normal lh-1 mt-3">
+          What is Product?<br>
+          <span class="text-muted">Problem Statement.</span>
+        </h2>
+        <p class="lead text-justify">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This project focused on building a Human Face Recognition System with Keras, Tensor Flow, and Deep Learning. The goal is to train a custom Deep Learning model to detect human faces on the input stream like pre-recorded videos or live video (as input). One of the primary workings of the system is the identification of faces. 
+          It is a computer vision task of identifying and verifying a person from a digital image or video frame. It involves capturing an image of a face and then using computer algorithms to compare and match that face to a database of known faces. The system typically involves extracting unique features from a face such as:
+          <ol class="lead" style="list-style-type:disc;">
+            <li>Distance between the eyes</li>
+            <li>Shape of the nose </li>
+            <li>Depth of facial features.</li>
+          </ol>
+          <span class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;These features are then compared to a database of faces to find the closest match. 
+          The system can be used for various applications, including security systems, photo tagging,
+          and human-computer interaction. The problem being solved is to accurately identify 
+          individuals in real-world situations and to verify their identity based on their facial 
+          features using:</span>
+           
+          <ol class="lead" style="list-style-type:disc;">
+            <li>Face-Net Algorithm</li>
+            <li>YOLO v7 </li>
+            <li>Convolutional Neural Network (CNN) algorithm </li>
+          </ol>
+        </p>
+      </div>
+      <div class="col-md-5">
+        <img
+          class="bd-placeholder-img bd-placeholder-img-lg featurette-image mt-4 pt-4 img-fluid mx-auto"
+          width="500"
+          height="500"
+          src="{% static 'images/product.png' %}" 
+        />
+          
+        
+      </div>
+    </div>
+
+    <hr class="featurette-divider" />
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2" id="bg">
+        <h2 class="featurette-heading fw-normal lh-1">
+          Background
+          
+        </h2>
+        <p class="lead text-justify">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The face detection and recognition process begins by identifying facial features from images captured by a camera or stored in memory. The algorithm analyzes the image, counts the faces by comparing patterns from a machine learning model to a known database, and filters out non-faces.
+          The project's motivation is to enhance crime tracing and identification, aiding law enforcement agencies like NADRA, Safe City, and Punjab Police. It also streamlines entry gate processes in shopping malls by automating face detection and recognition, reducing manual efforts.
+          Face recognition has evolved from traditional methods to deep learning, particularly Convolutional Neural Networks (CNNs) like FaceNet, VGGFace, and DeepFace. These systems offer high performance and have applications in security, tagging, and human-computer interaction.
+        </p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img
+          class="bd-placeholder-img bd-placeholder-img-lg mt-4 pt-4 featurette-image img-fluid mx-auto"
+          width="500"
+          height="500"
+          src={% static 'images/wp.png' %}
+          
+        />
+          
+      </div>
+    </div>
+
+    <hr class="featurette-divider" />
+
+    <div class="row featurette">
+      <div class="col-md-7" id="aims">
+        <h2 class="featurette-heading fw-normal lh-1">
+          What are the Objective(s) <span class="text-muted">-Aim(s) and Target(s)</span>
+        </h2>
+        <p class="lead" >
+          The objectives of a criminal detection project using face recognition technology can include:
+          <ol class="lead" style="list-style-type:disc;">
+            <li><strong> Accurate identification:</strong> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The primary objective is to accurately identify criminals and match their faces to a database of known offenders.</li>
+            <li><strong> Improved public safety:</strong> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The face recognition system should help to improve public safety by detecting and deterring criminal activity.</li>
+            <li><strong> Real-time operation:</strong> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The system should operate in real-time to allow for fast and efficient identification of criminals.</li>
+            <li><strong> Robustness: </strong> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The system should be robust to challenging conditions, such as low-light or heavy occlusion, to provide reliable results in real-world scenarios.</li>
+            <li><strong> Privacy preservation:</strong> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The face recognition system should be designed to protect the privacy of individuals, such as by not storing their personal information or facial data unless necessary for criminal investigations.</li>
+            <li><strong> Integration with other systems:  </strong> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The face recognition system should be able to integrate with other systems and applications,such as police databases, to allow for seamless use in criminal investigations.</li>
+            <li><strong> User-friendly interface: </strong> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The system should have a user-friendly interface, allowing for easy setup, deployment, and use by law enforcement and criminal investigation professionals.</li>
+          </ol>
+          <span class="lead">These objectives will influence the design and development of the face recognition system and will be used to evaluate its performance and success in meeting the specific requirements of the criminal detection application
+          </span>
+        </p>
+      </div>
+      <div class="col-md-5">
+        <img
+          class="bd-placeholder-img bd-placeholder-img-lg mt-4 pt-4 featurette-image img-fluid mx-auto"
+          width="500"
+          height="500"
+          src={% static 'images/bg.png'%}
+          role="img"
+          aria-label="Placeholder: 500x500"
+          preserveAspectRatio="xMidYMid slice"
+          focusable="false"
+        />
+          
+      </div>
+    </div>
+
+    <hr class="featurette-divider" />
+</div>
+</main>
+
+{% endblock body %}

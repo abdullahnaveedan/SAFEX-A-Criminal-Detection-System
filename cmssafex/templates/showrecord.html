@@ -1,0 +1,154 @@
+{% extends 'structure.html' %} {% block title %} Profile {% endblock title %} 
+{%block css %} 
+input{
+    margin:10px;
+}
+.w-50{
+    width:70% !important;
+}
+.mb-4, .my-4 {
+    margin-bottom: 2.5rem!important;
+}
+.form-control{
+    padding: 1.375rem 0.75rem;
+    font-size:1.2rem;
+}
+h1{
+  font-weight:bolder;
+}
+button:hover{
+  background:#f64c72;
+}
+{% endblock css %}
+{%block bufferbody %}
+
+<h1 class="mt-4 pt-4 pb-4 mb-4"><center>UPDATE PROFILE</center></h1>
+
+
+
+<form class="form-signin p-4 w-50 mt-4 pt-4" style="margin-left:7rem;" method="POST" action="/cms.safex/update/" >
+    {% csrf_token %}
+  <div class="d-flex">
+    <input
+      class="d-none"
+      type="text"
+      name="myid"
+      class="form-control w-75"
+      value = "{{id}}"
+    />
+    
+    <input
+      type="text"
+      name="fname" id="fname"
+      class="form-control w-75"
+      value = "{{users.fname}}"
+      readonly
+      autofocus
+    />
+    <input
+      type="text"
+      name="lname" id="lname"
+      class="form-control w-75"
+      value = "{{users.lname}}"
+      readonly
+      autofocus
+    />
+  </div>
+  <input
+    type="text"
+    name="username" id="username"
+    class="form-control"
+    value = "{{users.username}}"
+    readonly
+    autofocus
+  />
+  <input
+    type="text"
+    id="fathername" name="fathername"
+    class="form-control"
+    value= "{{users.fathername}}"
+    placeholder = "Father Name"
+    required
+  />
+  <input
+    type="text"
+    id="beltno" name="beltno"
+    class="form-control"
+    value="{{users.beltno}}"
+    placeholder = "Belt Number"
+    readonly
+  />
+  <input
+    type="text"
+    id="phoneno" name="phoneno"
+    class="form-control"
+    value="{{users.phoneno}}"
+    placeholder = "Phone Number"
+    required
+  />
+  <input
+    type="text"
+    id="cnic" name="cnic"
+    class="form-control"
+    value="{{users.cnic}}"
+    placeholder = "CNIC"
+    required
+  />
+  <input
+    type="text"
+    id="rank" name="rank"
+    class="form-control"
+    value="{{users.rank}}"
+    placeholder = "Rank"
+    required
+  />
+  <input
+  type="text"
+  id="address" name="inputEmail"
+  class="form-control"
+  value="{{users.email}}"
+  placeholder = "Email"
+  required
+  />
+  <input
+  type="text"
+  id="address" name="address"
+  class="form-control"
+  value="{{users.address}}"
+  placeholder="Address"
+  required
+  />
+  <div class="d-flex ">
+    <input
+    type="text"
+    id="city" name="city"
+    class="form-control mx-2"
+    value="{{users.city}}"
+    placeholder = "City"
+    required
+  />
+  <input
+    type="text"
+    id="station" name="station"
+    class="form-control mx-2"
+    value="{{users.station}}"
+    placeholder = "Station"
+    required
+  />
+  <input
+    type="text"
+    id="division" name="division"
+    class="form-control mx-2"
+    value="{{users.division}}"
+    placeholder = "Devision"
+    required
+  />
+  </div>
+  <center class="pt-4 mt-4 mb-4">
+  <button class="btn btn-lg btn-success btn-block w-25" type="submit">
+    Save Changes
+  </button>
+</center>
+</form>
+
+{% endblock bufferbody %}

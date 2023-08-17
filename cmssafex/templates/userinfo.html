@@ -1,0 +1,56 @@
+{% extends 'structure.html' %} {% block title %}User Information{% endblock title %} 
+{% block bufferbody %} 
+
+<h1>All Users</h1>
+<br>
+{% comment %} <div class="container-fluid d-flex justify-content-start ">
+    <div class="input-group mb-3 w-25 mx-2">
+        <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary bg-dark" type="button">Search</button>
+        </div>
+        <input type="text" class="form-control" placeholder="@username" aria-label="" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3 w-25 mx-2">
+        <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary bg-dark" type="button">Search</button>
+        </div>
+        <input type="text" class="form-control" placeholder="@id" aria-label="" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3 w-25 mx-2">
+        <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary bg-dark" type="button">Search</button>
+        </div>
+        <input type="text" class="form-control" placeholder="@email" aria-label="" aria-describedby="basic-addon1">
+    </div>
+</div> {% endcomment %}
+
+  <br><br>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Id</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in users %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{i.first_name}} {{i.last_name}}</td>
+                <td>{{i.email}}</td>
+                <td><strong>{{i.id}}</strong></td>
+                <td><a class="btn btn-primary" href="/cms.safex/userinfo/{{i.id}}">
+                      <i class="fa-solid fa-gear" style="color: #ffffff;"></i> Update Profile</a>
+                    <a class="btn btn-info" href="/cms.safex/viewprofile/{{i.id}}">
+                      <i class="fa-solid fa-eye" style="color: #ffffff;"></i> View Profile</a>
+
+                
+              </td>
+            </tr>
+         {% endfor %}
+    </tbody>
+  </table>
+{% endblock bufferbody %}

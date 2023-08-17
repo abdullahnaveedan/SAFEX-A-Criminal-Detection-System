@@ -1,0 +1,106 @@
+{% extends 'structure.html' %}
+{% block title %}Image Detection{% endblock title %}
+{% block css %}
+.loader-container {
+    position: absolute;
+    padding-top: 7rem;
+    padding-left: 31rem;
+  }
+  
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .results img{
+    width:500px;
+}
+.main{
+      border:1px solid #000;
+      margin: 0;
+    padding: 0;
+  }
+  
+  .results,.record{
+    border-bottom:1px solid #000;
+    border-right:1px solid #000;
+  }
+  
+  h3,p,.results video{
+    margin:1.2rem;
+    padding:0.5rem;
+  }
+{% endblock css %}
+{% block bufferbody %}
+<h1 style="color:blue; font-family:Arial Black;" class="text-center mt-4 mb-4">Video Detection</h1>
+<form class="container w-75" enctype="multipart/form-data" action="/cms.safex/videodetect/" method="POST">
+    {% csrf_token %}
+
+    <div class="form-group d-flex">
+        <input type="file" class="btn btn-info" name="front" accept="video/*" style="font-size: 1.2rem;width: 31rem;" />
+        <button  class="btn btn-primary mx-4" type="submit" onclick="loader()"><b> <i class="fa-solid fa-share-from-square"></i> Submit Video</b></button>
+    </div>
+
+</form>
+{% load static %}
+{% if count == 1 %}
+    <div style="padding-top:5rem;">
+        <hr style="width:40rem;">
+        <h1 style="color:Black; font-family:Arial Black;" class="text-center mt-4 mb-4">Result of Detection</h1>
+        <hr style="width:40rem;">
+    </div>
+    <div class="container main" >
+        <div class="d-flex justify-content-between results">
+            <h3>Input Video</h3>
+            <video width="320" height="240" controls>
+                <source src="/media/{{rec.datafile}}" type="video/mp4">
+            </video>
+            
+        </div>
+        <div class="d-flex justify-content-between results">
+            <h3>Output Video</h3>
+            <video width="320" height="240" controls>
+                <source src="/media/{{rec.outputvideo}}" type="video/mp4">
+            </video>
+            
+        </div>
+        
+        <div class="d-flex justify-content-between record">
+            <h3>Input Type </h3><p><strong>{{rec.datatype}}</strong></p>
+        </div>
+        <div class="d-flex justify-content-between record">
+            <h3>Detected Persons </h3><p><strong>{{rec.nooffaces}}</strong></p>
+        </div>
+        
+    </div>
+
+{% elif count == 2%}
+    <h3 style="color:Black; font-family:Arial Black;" class="text-center mt-4 mb-4">Something went wrong!</h3>
+
+{% else %}
+    <div class="loader-container" id="loader-container">
+        <div class="loader"></div>
+        <pre>Detection is in process..</pre>
+    </div>
+{% endif %}
+<br><br><br>
+{% endblock bufferbody %}
+
+{% block js %}
+document.getElementById("loader-container").style.display = "none";
+document.body.style.opacity = "100%";
+
+function loader()
+{
+    document.body.style.opacity = "70%";
+    document.getElementById("loader-container").style.display = "block";
+}
+{% endblock js %}

@@ -1,0 +1,50 @@
+{% extends 'structure.html' %}
+{% block title %}Contacts{% endblock title %}
+{% block bufferbody %}
+<p>{{i.useremail}}</p>
+<h1>Messages </h1>
+<br>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Email</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in cont %}
+      <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td><strong>{{ i.useremail }}</strong></td>
+          <td>{{ i.subject }}</td>
+          <td>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#message{{ forloop.counter }}">
+                  <i class="fa-solid fa-eye" style="color: #ffffff;"></i> Preview
+              </button>
+          </td>
+          <div class="modal fade" id="message{{ forloop.counter }}" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title">Message</h5>
+                      </div>
+                      <div class="modal-body">
+                          <p class="text-justify">{{ i.message }}</p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </tr>
+  {% endfor %}
+  
+    </tbody>
+  </table>
+
+
+
+{% endblock bufferbody %}
