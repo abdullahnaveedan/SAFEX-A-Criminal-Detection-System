@@ -15,7 +15,7 @@ SAFEX is a comprehensive and advanced system developed using Django in Python, s
 ## Installation and Setup
 
 1. Clone the repository to your local environment.
-2. Install the required dependencies by running `pip install -r requirements.txt`.
+2. Install the required dependencies by running `pip install -r requirements.txt` and `pip install -r requirements_gpu.txt`.
 3. Configure the database settings in `settings.py`.
 4. Run migrations to create the necessary database tables using `python manage.py migrate`.
 5. Launch the SAFEX system by executing `python manage.py runserver`.
